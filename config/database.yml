@@ -1,0 +1,20 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: search_engines_development
+  pool: 5
+  username: postgres
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: search_engines_test
+  pool: 5
+  username: postgres
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: search_engines_production
+  pool: 5
+  username: postgres

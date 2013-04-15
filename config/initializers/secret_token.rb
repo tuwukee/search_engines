@@ -1,0 +1,1 @@
+SearchEngines::Application.config.secret_token = '1028b9fb6840306e655e769d19b937be4783b0315e86ec06c654ae1b3d19a4cfa3a4e0a1b045784a22084227ca09f085b271fe6f6234b5d33dfd363f7a3abe74'

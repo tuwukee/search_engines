@@ -1,0 +1,1 @@
+application should provide possibility to search same phrase using different engines and show it simultaneously
