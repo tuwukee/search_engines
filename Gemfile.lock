@@ -1,3 +1,16 @@
+GIT
+  remote: git://github.com/pat/thinking-sphinx.git
+  revision: ec658bff0479ce72532d1dc4fa158025fff92ecb
+  ref: ec658bff04
+  branch: master
+  specs:
+    thinking-sphinx (3.0.2)
+      activerecord (>= 3.1.0)
+      builder (>= 2.1.2)
+      innertube (>= 1.0.2)
+      middleware (>= 0.1.0)
+      riddle (>= 1.5.4)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -43,6 +56,7 @@ GEM
     hike (1.2.2)
     i18n (0.6.4)
     iconv (1.0.2)
+    innertube (1.0.2)
     journey (1.0.4)
     jquery-rails (2.2.1)
       railties (>= 3.0, < 5.0)
@@ -52,8 +66,10 @@ GEM
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    middleware (0.1.0)
     mime-types (1.22)
     multi_json (1.7.2)
+    mysql2 (0.3.12b5)
     pg (0.15.1)
     polyglot (0.3.3)
     rack (1.4.5)
@@ -81,6 +97,7 @@ GEM
     rake (10.0.4)
     rdoc (3.12.2)
       json (~> 1.4)
+    riddle (1.5.5)
     sass (3.2.7)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
@@ -108,7 +125,9 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   iconv
   jquery-rails
+  mysql2 (= 0.3.12b5)
   pg
   rails (= 3.2.11)
   sass-rails (~> 3.2.3)
+  thinking-sphinx (~> 3.0.2)!
   uglifier (>= 1.0.3)

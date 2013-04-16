@@ -11,3 +11,8 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'mysql2',          '0.3.12b5'
+gem 'thinking-sphinx', '~> 3.0.2',
+  :git    => 'git://github.com/pat/thinking-sphinx.git',
+  :branch => 'master',
+  :ref    => 'ec658bff04'

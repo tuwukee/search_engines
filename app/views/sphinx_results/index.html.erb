@@ -1,0 +1,20 @@
+<%= "Movies" %>
+
+<%= form_tag :method => :get, :controller => :sphinx_results, :action => :index do %>
+  <%= text_field_tag :search, params[:search] %>
+  <%= submit_tag "Search", :name => nil %>
+<% end %>
+
+<ul>
+  <% @results.each do |result| %>
+    <li class="search_result">
+      <div class="movie_name">
+        <h3><%=result.movie.name %>
+        (<%= result.movie.year %>)</h3>
+      </div>
+      <div class="description">
+        <%= result.description %>
+      </div>
+    </li>
+  <% end %>
+</ul>
