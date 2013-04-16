@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(:version => 20130415131153) do
   create_table "goofs", :force => true do |t|
     t.integer "movie_id"
     t.string  "goof_type"
-    t.text    "descripition"
+    t.text    "description"
   end
 
   create_table "movies", :force => true do |t|

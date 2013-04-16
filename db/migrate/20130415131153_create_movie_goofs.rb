@@ -8,7 +8,7 @@ class CreateMovieGoofs < ActiveRecord::Migration
     create_table :goofs do |t|
       t.integer :movie_id
       t.string :goof_type
-      t.text :descripition
+      t.text :description
     end
   end
 
