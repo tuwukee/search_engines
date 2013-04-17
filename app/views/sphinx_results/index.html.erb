@@ -5,15 +5,19 @@
   <%= submit_tag "Search", :name => nil %>
 <% end %>
 
+<% if @results.any? %>
+  <h2><%= "Your search took #{@results.query_time} seconds ans return the following results:" %></h2></br>
+<% end %>
+
 <ul>
   <% @results.each do |result| %>
     <li class="search_result">
       <div class="movie_name">
-        <h3><%=result.movie.name %>
+        <h3><%= (@excerpter.excerpt! result.movie.name).html_safe %>
         (<%= result.movie.year %>)</h3>
       </div>
       <div class="description">
-        <%= result.description %>
+        <%= (@excerpter.excerpt! result.description).html_safe %>
       </div>
     </li>
   <% end %>
