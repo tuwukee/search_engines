@@ -1,24 +1,26 @@
 <%= "Movies" %>
 
-<%= form_tag :method => :get, :controller => :sphinx_results, :action => :index do %>
+<%= form_tag sphinx_path, :method => :get do %>
   <%= text_field_tag :search, params[:search] %>
   <%= submit_tag "Search", :name => nil %>
 <% end %>
 
-<% if @results.any? %>
-  <h2><%= "Your search took #{@results.query_time} seconds ans return the following results:" %></h2></br>
-<% end %>
+<%= link_to 'Home', root_path %>
 
-<ul>
-  <% @results.each do |result| %>
-    <li class="search_result">
-      <div class="movie_name">
-        <h3><%= (@excerpter.excerpt! result.movie.name).html_safe %>
-        (<%= result.movie.year %>)</h3>
-      </div>
-      <div class="description">
-        <%= (@excerpter.excerpt! result.description).html_safe %>
-      </div>
-    </li>
-  <% end %>
-</ul>
+<% if @results %>
+  <h2><%= "Your search took #{@results.query_time} seconds ans return the following results:" %></h2></br>
+
+  <ul>
+    <% @results.each do |result| %>
+      <li class="search_result">
+        <div class="movie_name">
+          <h3><%= (@excerpter.excerpt! result.movie.name).html_safe %>
+          (<%= result.movie.year %>)</h3>
+        </div>
+        <div class="description">
+          <%= (@excerpter.excerpt! result.description).html_safe %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+<% end %>

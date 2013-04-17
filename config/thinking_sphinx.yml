@@ -1,5 +1,6 @@
 development:
   mysql41: 9313
+  max_matches: 10000
   min_infix_len: 3
   config_file: "./config/development.sphinx.conf"
   searchd_log_file: "./log/searchd.log"
