@@ -1,4 +1,4 @@
-class ResultsController < ActionController::Base
+class ResultsController < ApplicationController
   def index
     if params[:search].present?
       @results = Goof::ThinkingSphinx.search params[:search]
@@ -8,11 +8,10 @@ class ResultsController < ActionController::Base
         :chunk_separator => ' &#8230; '
       }
 
-      @search = Sunspot.search(Goof) do
+      standard_search = Goof::Sunspot.search(Goof) do
         fulltext params[:search]
       end
-
-      @solr_results = @search.results
+      @solr_results = standard_search.results
     end
   end
 end

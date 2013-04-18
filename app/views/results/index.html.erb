@@ -1,24 +1,45 @@
 <h1><%= "Search Engines" %></h1>
 
 <%= form_tag results_path, :method => :get do %>
-  <%= text_field_tag :search, params[:search] %>
-  <%= submit_tag "Search", :name => nil %>
+  <div id="search">
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil, :class => "btn" %>
+  </div>
 <% end %>
-
-<% if @results %>
-  <h2><%= "Your search took #{@results.query_time} seconds ans return the following results:" %></h2></br>
-
-  <ul>
-    <% @results.each do |result| %>
-      <li class="search_result">
-        <div class="movie_name">
-          <h3><%= (@excerpter.excerpt! result.movie.name).html_safe %>
-          (<%= result.movie.year %>)</h3>
-        </div>
-        <div class="description">
-          <%= (@excerpter.excerpt! result.description).html_safe %>
-        </div>
-      </li>
+<div class="row">
+  <div class="span4">
+    <% if @results %>
+      <h5><%= "Sphinx search took #{@results.query_time} seconds ans return the following results:" %></h5></br>
+      <ul>
+        <% @results.each do |result| %>
+          <li class="search_result">
+            <div class="movie_name">
+              <h3><%= (@excerpter.excerpt! result.movie.name).html_safe %>
+              (<%= result.movie.year %>)</h3>
+            </div>
+            <div class="description">
+              <%= (@excerpter.excerpt! result.description).html_safe %>
+            </div>
+          </li>
+        <% end %>
+      </ul>
     <% end %>
-  </ul>
-<% end %>
+  </div>
+  <div class="span4">
+    <% if @solr_results %>
+      <ul>
+        <% @solr_results.each do |result| %>
+          <li class="search_result">
+            <div class="movie_name">
+              <h3><%= result.movie.name.html_safe %>
+              (<%= result.movie.year %>)</h3>
+            </div>
+            <div class="description">
+              <%= result.description.html_safe %>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+</div>
