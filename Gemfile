@@ -16,3 +16,6 @@ gem 'thinking-sphinx', '~> 3.0.2',
   :git    => 'git://github.com/pat/thinking-sphinx.git',
   :branch => 'master',
   :ref    => 'ec658bff04'
+
+gem 'sunspot_rails'
+gem 'sunspot_solr'

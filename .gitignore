@@ -16,3 +16,4 @@
 /tmp
 /*.list
 /db/sphinx
+/solr
