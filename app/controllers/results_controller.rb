@@ -8,10 +8,12 @@ class ResultsController < ApplicationController
         :chunk_separator => ' &#8230; '
       }
 
-      standard_search = Goof::Sunspot.search(Goof) do
+      standart_search = Sunspot.search(Goof) do
         fulltext params[:search]
       end
-      @solr_results = standard_search.results
+
+      @solr_time = standart_search.query_time / 1000.0
+      @solr_results = standart_search.results
     end
   end
 end

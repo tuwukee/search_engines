@@ -27,6 +27,7 @@
   </div>
   <div class="span4">
     <% if @solr_results %>
+      <h5><%= "Solr search took #{@solr_time} seconds ans return the following results:" %></h5></br>
       <ul>
         <% @solr_results.each do |result| %>
           <li class="search_result">
