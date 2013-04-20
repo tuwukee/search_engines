@@ -14,6 +14,8 @@ class ResultsController < ApplicationController
 
       @solr_time = standart_search.query_time / 1000.0
       @solr_results = standart_search.results
+
+      @pstg_results = Goof.text_search params[:search]
     end
   end
 end

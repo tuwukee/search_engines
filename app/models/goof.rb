@@ -6,4 +6,8 @@ class Goof < ActiveRecord::Base
     text :description
     string :goof_type
   end
+
+  def self.text_search(query)
+    where("description ilike :q or goof_type ilike :q", q: "%#{query}%")
+  end
 end
