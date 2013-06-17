@@ -1,13 +1,13 @@
-class Goof < ActiveRecord::Base
+class Goof < PostgreClient
   attr_accessible :goof_type, :movie_id, :description
   belongs_to :movie
 
   searchable do
     text :description
-    string :goof_type
+    text :goof_type
   end
 
   def self.text_search(query)
-    where("description ilike :q or goof_type ilike :q", q: "%#{query}%")
+    where("description @@ :q or goof_type @@ :q", q: query).limit(15)
   end
 end

@@ -14,11 +14,11 @@
         <% @results.each do |result| %>
           <li class="search_result">
             <div class="movie_name">
-              <h3><%= (@excerpter.excerpt! result.movie.name).html_safe %>
+              <h3><%= result.movie.name %>
               (<%= result.movie.year %>)</h3>
             </div>
             <div class="description">
-              <%= (@excerpter.excerpt! result.description).html_safe %>
+              <%= result.description %>
             </div>
           </li>
         <% end %>

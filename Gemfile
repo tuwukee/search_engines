@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.11'
 gem 'pg'
 gem 'iconv'
+gem 'activerecord-mysql-adapter'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -22,4 +23,5 @@ gem 'thinking-sphinx', '~> 3.0.2',
 
 gem 'sunspot_rails'
 gem 'sunspot_solr'
-
+gem 'progress_bar'
+gem 'newrelic_rpm'

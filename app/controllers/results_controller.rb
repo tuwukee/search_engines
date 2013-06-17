@@ -1,15 +1,13 @@
 class ResultsController < ApplicationController
   def index
     if params[:search].present?
-      @results = Goof::ThinkingSphinx.search params[:search]
-      @excerpter = ThinkingSphinx::Excerpter.new 'goof_core', params[:search], {
-        :before_match    => '<span class="match" style="background-color: yellowgreen">',
-        :after_match     => '</span>',
-        :chunk_separator => ' &#8230; '
-      }
+      @results = Goof::ThinkingSphinx.search params[:search],
+                              :max_matches => 15,
+                              :per_page    => 15
 
       standart_search = Sunspot.search(Goof) do
         fulltext params[:search]
+        paginate :page => 1, :per_page => 15
       end
 
       @solr_time = standart_search.query_time / 1000.0
