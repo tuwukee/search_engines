@@ -14,6 +14,8 @@ class ResultsController < ApplicationController
       @solr_results = standart_search.results
 
       @pstg_results = Goof.text_search params[:search]
+
+      @mysql_results = MyGoof.find(:all, :conditions => ["match(description,goof_type) against (? IN BOOLEAN MODE)", params[:search]]).first 15
     end
   end
 end

@@ -7,7 +7,7 @@
   </div>
 <% end %>
 <div class="row">
-  <div class="span4">
+  <div class="span3">
     <% if @results %>
       <h5><%= "Sphinx search took #{@results.query_time} seconds ans return the following results:" %></h5></br>
       <ul>
@@ -25,7 +25,7 @@
       </ul>
     <% end %>
   </div>
-  <div class="span4">
+  <div class="span3">
     <% if @solr_results %>
       <h5><%= "Solr search took #{@solr_time} seconds ans return the following results:" %></h5></br>
       <ul>
@@ -43,7 +43,7 @@
       </ul>
     <% end %>
   </div>
-  <div class="span4">
+  <div class="span3">
     <% if @pstg_results %>
       <h5><%= "Postgres Search return the following results:" %></h5></br>
       <ul>
@@ -52,6 +52,24 @@
             <div class="movie_name">
               <h3><%= result.movie.name.html_safe %>
               (<%= result.movie.year %>)</h3>
+            </div>
+            <div class="description">
+              <%= result.description.html_safe %>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+  <div class="span3">
+    <% if @mysql_results %>
+      <h5><%= "MySQL Search return the following results:" %></h5></br>
+      <ul>
+        <% @mysql_results.each do |result| %>
+          <li class="search_result">
+            <div class="movie_name">
+              <h3><%= result.my_movie.name.html_safe %>
+              (<%= result.my_movie.year %>)</h3>
             </div>
             <div class="description">
               <%= result.description.html_safe %>
